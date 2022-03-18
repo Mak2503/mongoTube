@@ -1,9 +1,14 @@
 const mongoose = require("mongoose");
+mongoose.Promise = global.Promise; //ES6 - promise
 
-mongoose.connect("mongodb://localhost/mongotube", { useNewUrlParser: true });
-
-mongoose.connection
-  .once("open", () => console.log("Database Connected"))
-  .on("error", (error) => {
-    console.log("Error: ", error);
-  });
+before((done) => {
+  mongoose.connect("mongodb://localhost/mongotube", { useNewUrlParser: true });
+  mongoose.connection
+    .once("open", () => {
+      // console.log("Database Connected")
+      done();
+    })
+    .on("error", (error) => {
+      console.log("Error: ", error);
+    });
+});
