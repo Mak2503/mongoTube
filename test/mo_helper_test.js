@@ -12,3 +12,10 @@ before((done) => {
       console.log("Error: ", error);
     });
 });
+
+beforeEach((done) => {
+  mongoose.connection.collections.students.drop(() => {
+    console.log("Students collection dropped");
+    done();
+  });
+});
