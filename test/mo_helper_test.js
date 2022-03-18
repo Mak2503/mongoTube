@@ -15,7 +15,6 @@ before((done) => {
 
 beforeEach((done) => {
   mongoose.connection.collections.students.drop(() => {
-    console.log("Students collection dropped");
     done();
   });
 });

@@ -1,7 +1,7 @@
 const Student = require("../app/student");
 const assert = require("assert");
 
-describe("Create records", () => {
+describe("Create Tests", () => {
   it("create a user in db", () => {
     // assert(false);
     const sam = new Student({ name: "Sam" });
